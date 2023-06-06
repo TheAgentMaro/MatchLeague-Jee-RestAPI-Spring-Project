@@ -9,7 +9,7 @@ MatchLeague est une application de gestion de matchs sportifs. Elle permet aux u
 - Hibernate
 - MySQL (base de données)
 - Maven (gestion des dépendances)
-- Postman (test des API)
+- Postman (test des API) / Swagger UI
 
 ## Prérequis
 
@@ -52,6 +52,11 @@ L'application sera lancée et sera accessible à l'adresse http://localhost:8080
 
 ## Utilisation des API
 
+### SwaggerUI
+Accédez à Swagger UI en utilisant le lien suivant : http://localhost:8080/swagger-ui/index.html
+Swagger UI vous permet d'explorer les différentes API disponibles, d'afficher leurs détails, de tester les endpoints et même de générer des exemples de code pour les appels d'API.
+
+### Postman
 Vous pouvez utiliser les outils tels que Postman pour tester les API de MatchLeague. Voici quelques exemples d'API disponibles :
 
 ```bash
