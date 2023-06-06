@@ -2,9 +2,9 @@ package com.supinfo.matchleague.controller;
 
 import com.supinfo.matchleague.model.User;
 import com.supinfo.matchleague.repository.UserRepository;
-import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,13 +15,20 @@ import java.util.List;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userRepository) {
+
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+        // Encrypt the password
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
         User createdUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
@@ -47,7 +54,10 @@ public class UserController {
         User user = userRepository.findById(id).orElse(null);
         if (user != null) {
             user.setUsername(updatedUser.getUsername());
-            user.setPassword(updatedUser.getPassword());
+            if (updatedUser.getPassword() != null) {
+                String encodedPassword = passwordEncoder.encode(updatedUser.getPassword());
+                user.setPassword(encodedPassword);
+            }
             user.setAdmin(updatedUser.isAdmin());
             user.setMemberLeague(updatedUser.isMemberLeague());
             user.setJournaliste(updatedUser.isJournaliste());

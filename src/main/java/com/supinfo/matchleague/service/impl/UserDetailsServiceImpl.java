@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("ROLE_MEMBER-LEAGUE"));
         }
         if (user.isJournaliste()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_JOURNALISTES"));
+            authorities.add(new SimpleGrantedAuthority("ROLE_JOURNALISTE"));
         }
 
         return new org.springframework.security.core.userdetails.User(
