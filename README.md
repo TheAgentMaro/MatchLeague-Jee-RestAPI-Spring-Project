@@ -6,7 +6,6 @@ MatchLeague est une application de gestion de matchs sportifs. Elle permet aux u
 - Java
 - Spring Boot
 - Spring Data JPA
-- Hibernate
 - MySQL (base de données)
 - Maven (gestion des dépendances)
 - Postman (test des API) / Swagger UI
