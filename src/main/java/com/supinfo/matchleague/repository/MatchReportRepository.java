@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatchReportRepository extends JpaRepository<MatchReport, Long> {
-    // Add custom query methods if needed
 }

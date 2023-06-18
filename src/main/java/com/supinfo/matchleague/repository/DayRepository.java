@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DayRepository extends JpaRepository<Day, Long> {
-    //méthodes supplémentaires spécifiques si nécessaire
 }

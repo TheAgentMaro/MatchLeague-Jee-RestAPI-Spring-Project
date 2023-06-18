@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SeasonRepository extends JpaRepository<Season, Long> {
     boolean existsByLabel(String label);
-    //méthodes supplémentaires spécifiques si nécessaire
 }

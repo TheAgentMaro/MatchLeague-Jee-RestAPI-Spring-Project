@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatchSuspensionRepository extends JpaRepository<MatchSuspension, Long> {
-    // Add custom query methods if needed
 }
